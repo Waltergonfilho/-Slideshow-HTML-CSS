@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;    
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+    background: #000000;
+    transition: background 04s ease-in;
+}
+
+input[type=radio]{
+    display: none;
+}
+
+img{
+    width: 100%; 
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.card{
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+    transform: 0.4s;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    max-height: 600px;
+    display: flex;
+    transform-style: preserve-3d;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cards{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+}
+/* coloquei o codigo para 10 imagens */
+
+
+/* esse primeiro ele vai rotacionar já deixando 
+a 7ª imahem de lado e seguindo a partir da 1ª */
+
+#item-1:checked ~ .cards #model-7,
+#item-2:checked ~ .cards #model-1,
+#item-3:checked ~ .cards #model-2,
+#item-4:checked ~ .cards #model-3,
+#item-5:checked ~ .cards #model-4,
+#item-6:checked ~ .cards #model-5,
+#item-7:checked ~ .cards #model-6{
+/* #item-8:checked ~ .cards #model-7,
+#item-9:checked ~ .cards #model-8,
+#item-10:checked ~ .cards #model-9{ */
+    transform: translateX(-100%) scale(0.7);
+    opacity: 0.4;
+    z-index: 0;
+}
+
+/* esse codigo vai fazer o oposto e alocar
+as imagens que já foram passadas */
+
+#item-1:checked ~ .cards #model-2,
+#item-2:checked ~ .cards #model-3,
+#item-3:checked ~ .cards #model-4,
+#item-4:checked ~ .cards #model-5,
+#item-5:checked ~ .cards #model-6,
+#item-6:checked ~ .cards #model-7,
+#item-7:checked ~ .cards #model-1{
+/* #item-8:checked ~ .cards #model-9,
+#item-9:checked ~ .cards #model-10,
+#item-10:checked ~ .cards #model-1{ */
+    transform: translateX(100%) scale(0.7);
+    opacity: 0.4;
+    z-index: 0;
+}
+
+/* esse codigo vai fazer a imagem que ser 
+visualizada dando enfase na mesma removendo
+a opacidade e aumentando a escala da mesma */
+
+#item-1:checked ~ .cards #model-1,
+#item-2:checked ~ .cards #model-2,
+#item-3:checked ~ .cards #model-3,
+#item-4:checked ~ .cards #model-4,
+#item-5:checked ~ .cards #model-5,
+#item-6:checked ~ .cards #model-6,
+#item-7:checked ~ .cards #model-7{
+/* #item-8:checked ~ .cards #model-8,
+#item-9:checked ~ .cards #model-9,
+#item-10:checked ~ .cards #model-10{ */
+    transform: translateX(0) scale(1.5);
+    opacity: 1;
+    z-index: 1;
+}
+
+#item-1:checked ~ .cards #model-1 img,
+#item-2:checked ~ .cards #model-2 img,
+#item-3:checked ~ .cards #model-3 img,
+#item-4:checked ~ .cards #model-4 img,
+#item-5:checked ~ .cards #model-5 img, 
+#item-6:checked ~ .cards #model-6 img,
+#item-7:checked ~ .cards #model-7 img{
+/* #item-8:checked ~ .cards #model-8 img,
+#item-9:checked ~ .cards #model-9 img,
+#item-10:checked ~ .cards #model-10 img{ */
+    box-shadow: 0px 0px 5px 0px rgb(163, 252, 255);
+} 
